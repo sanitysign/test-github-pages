@@ -75,10 +75,24 @@ body {
   padding: 24px;
   font-size: 1.6rem;
   text-align: center;
+  cursor: pointer;
+
+  &.inactive {
+    cursor: auto;
+  }
+
+  &:not(.inactive):hover {
+    border-color: #999;
+  }
 
   &__heading {
     font-size: 2rem;
     margin-bottom: 16px;
     font-weight: 400;
+
+    .faded {
+      font-size: 0.6em;
+      opacity: 0.5;
+    }
   }
 }

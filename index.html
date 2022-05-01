@@ -7,18 +7,23 @@
   <title>Test import and fetch</title>
   <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
   <link rel="stylesheet" href="styles/style.css">
+  <script defer src="js/index.js"></script>
   <script type="module" src="js/main.js"></script>
 </head>
 
 <body>
   <div class="container">
-    <div class="data">
+    <div class="data inactive" id="imported">
       <h2 class="data__heading">Imported data</h2>
-      <div class="data__content" id="imported"></div>
+      <div class="data__content" data-content></div>
     </div>
-    <div class="data">
-      <h2 class="data__heading">Fetched data</h2>
-      <div class="data__content" id="fetched"></div>
+    <div class="data" id="fetched">
+      <h2 class="data__heading">Fetched data <span class="faded">click to fetch</span></h2>
+      <div class="data__content" data-content></div>
+    </div>
+    <div class="data" id="intercepted">
+      <h2 class="data__heading">Intercepted by MSW <span class="faded">click to fetch</span></h2>
+      <div class="data__content" data-content></div>
     </div>
   </div>
 </body>

@@ -267,9 +267,20 @@ body {
   padding: 24px;
   font-size: 1.6rem;
   text-align: center;
+  cursor: pointer;
+}
+.data.inactive {
+  cursor: auto;
+}
+.data:not(.inactive):hover {
+  border-color: #999;
 }
 .data__heading {
   font-size: 2rem;
   margin-bottom: 16px;
   font-weight: 400;
+}
+.data__heading .faded {
+  font-size: 0.6em;
+  opacity: 0.5;
 }/*# sourceMappingURL=style.css.map */

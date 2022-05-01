@@ -1,15 +1,48 @@
-import {data} from "./data.js"
+import { data } from "./data.js"
 
-const imported = document.getElementById('imported')
-const fetched = document.getElementById('fetched')
+console.log(window.MockServiceWorker)
+const { setupWorker, rest } = window.MockServiceWorker
 
-imported.textContent = data.join(" ")
+const worker = setupWorker(
+  rest.get("mocky", (req, res, ctx) => {
+    console.log(req)
+    console.log(ctx)
 
-document.addEventListener('click', async () => {
-  const data = await fetch("mockData/statuses.json").then(res => res.json()).catch(() => "Couldn't load data")
+    return res(ctx.json(["some", "another"]))
+  })
+)
+worker.start()
+
+const imported = document.getElementById("imported")
+const fetched = document.getElementById("fetched")
+const intercepted = document.getElementById("intercepted")
+
+imported.querySelector("[data-content]").textContent = data.join(" ")
+
+fetched.addEventListener("click", async () => {
+  const contentElem = fetched.querySelector("[data-content]")
+
+  const data = await fetch("mockData/statuses.json")
+    .then(res => res.json())
+    .catch(() => "Couldn't load data")
+
   console.log(data)
- 
-  if (typeof data === "string") return fetched.textContent = data
 
-  fetched.textContent = data.map(({text}) => text).join(" ")
+  if (typeof data === "string") return (contentElem.textContent = data)
+
+  contentElem.textContent = data.map(({ text }) => text).join(" ")
+})
+
+intercepted.addEventListener("click", async () => {
+  const contentElem = intercepted.querySelector("[data-content]")
+
+  const data = await fetch("mocky")
+    .then(res => res.json())
+    .catch(() => "Couldn't load data")
+
+  console.log(data)
+
+  if (typeof data === "string") return (contentElem.textContent = data)
+
+  contentElem.textContent = data.join(" ")
 })
