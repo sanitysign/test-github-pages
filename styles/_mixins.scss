@@ -1,0 +1,41 @@
+@mixin query($property) {
+  @media (max-width: $property) {
+    @content
+  }
+}
+
+@mixin laptop {
+  @media (max-width: 1366px) {
+    @content
+  }
+}
+
+@mixin tablet-landscape {
+  @media (max-width: 1024px) {
+    @content
+  }
+}
+
+@mixin tablet-portrait {
+  @media (max-width: 768px) {
+    @content
+  }
+}
+
+@mixin phone-large {
+  @media (max-width: 576px) {
+    @content
+  }
+}
+
+@mixin phone-medium {
+  @media (max-width: 480px) {
+    @content
+  }
+}
+
+@mixin phone-small {
+  @media (max-width: 320px) {
+    @content
+  }
+}
