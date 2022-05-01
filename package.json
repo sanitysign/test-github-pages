@@ -1,0 +1,23 @@
+{
+  "name": "github-pages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mockServiceWorker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sanitysign/test-github-pages.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sanitysign/test-github-pages/issues"
+  },
+  "homepage": "https://github.com/sanitysign/test-github-pages#readme",
+  "msw": {
+    "workerDirectory": "test-github-pages"
+  }
+}
