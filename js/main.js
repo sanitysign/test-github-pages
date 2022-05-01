@@ -1,6 +1,6 @@
 import { data } from "./data.js"
 
-console.log(window.MockServiceWorker)
+// console.log(window.MockServiceWorker)
 const { setupWorker, rest } = window.MockServiceWorker
 
 const worker = setupWorker(
